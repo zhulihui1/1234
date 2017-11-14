@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #tab {
+            width: 400px;
+            height: 300px;
+            margin: 20px auto;
+        }
+        ul {
+            overflow: hidden;
+            list-style: none;
+        }
+        ul li {
+            float: left;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 3px solid indianred;
+        }
+        ul li.select {
+            background: indianred;
+            color: white;
+        }
+        #tab div {
+            display: none;
+            width: 100%;
+            height: 800px;
+            border: 1px solid indigo;
+            text-align: center;
+            line-height: 800px;
+        }
+        #tab div.select {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">电影</li>
+        <li>电视剧</li>
+        <li>歌曲</li>
+    </ul>
+    <div class="select">战狼</div>
+    <div>我的团长我的团</div>
+    <div>消愁</div>
+</div>
+<script>
+    var oTab = document.getElementById('tab'),
+        oLis = document.getElementsByTagName('li'),
+        oDiv = oTab.getElementsByTagName('div');
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].index = i;
+        oLis[i].onclick = function () {
+            for (var j = 0; j < oLis.length; j++) {
+                oLis[j].className = oDiv[j].className = '';
+            }
+            oLis[this.index].className = oDiv[this.index].className = 'select'
+        }
+    }
+</script>
+</body>
+</html>
